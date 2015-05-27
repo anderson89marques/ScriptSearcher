@@ -25,7 +25,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:scriptAcceptionInstance, action:'save']" >
+			<g:form url="[controller:'scriptAcception', action:'save']" >
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

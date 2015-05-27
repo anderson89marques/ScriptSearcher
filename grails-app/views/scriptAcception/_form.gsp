@@ -36,10 +36,10 @@
 	</label>
 
 	<g:if test="${scriptAcceptionInstance?.tags}">
-		<g:textArea name="tags" value="${scriptAcceptionInstance?.tags*.nome.join(',')}" style="width: 250px; height: 80px;"/>
+		<g:textArea name="tagsnomes" value="${scriptAcceptionInstance?.tags*.nome?.join(',')}" style="width: 250px; height: 80px;"/>
 	</g:if>
 	<g:else>
-		<g:textArea name="tags" value="${scriptAcceptionInstance?.tags*.nome.join(',')}" style="width: 250px; height: 80px;"/>
+		<g:textArea name="tagsnomes" value="" style="width: 250px; height: 80px;"/>
 	</g:else>
 
 <div class="fieldcontain ${hasErrors(bean: scriptAcceptionInstance, field: 'conteudo', 'error')} ">

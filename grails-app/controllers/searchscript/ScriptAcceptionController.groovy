@@ -34,9 +34,14 @@ class ScriptAcceptionController {
             respond scriptAcceptionInstance.errors, view:'create'
             return
         }
-        println scriptAcceptionInstance
-        println "Params: ${params.toString()}"
-        //scriptAcceptionInstance.save flush:true
+        println "Params: $scriptAcceptionInstance"
+
+        def listtags = params.tagsnomes.split(',')
+        println "Lista de tags: ${listtags}"
+        for(tagnome in listtags){
+            scriptAcceptionInstance.addToTags(new SearchTag(nome: tagnome))
+        }
+        scriptAcceptionInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
