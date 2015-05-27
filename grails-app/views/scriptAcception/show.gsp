@@ -77,7 +77,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${scriptAcceptionInstance?.tags}">
+				<!-- <g:if test="${scriptAcceptionInstance?.tags}">
 				<li class="fieldcontain">
 					<span id="tags-label" class="property-label"><g:message code="scriptAcception.tags.label" default="Tags" /></span>
 					
@@ -87,7 +87,16 @@
 					
 				</li>
 				</g:if>
-			
+				-->
+				<li class="fieldcontain">
+					<span id="tags-label" class="property-label"><g:message code="scriptAcception.tags.label" default="Tags" /></span>
+					<g:if test="${scriptAcceptionInstance?.tags}">
+						<span class="property-value" aria-labelledby="tags-label"><g:textArea name="tagsnomes" value="${scriptAcceptionInstance?.tags*.nome?.join(',')}" style="width: 250px; height: 80px;"/></span>
+					</g:if>
+					<g:else>
+						<span class="property-value" aria-labelledby="tags-label"><g:textArea name="tagsnomes" value="" style="width: 250px; height: 80px;"/></span>
+					</g:else>
+				</li>
 			</ol>
 			<g:form url="[resource:scriptAcceptionInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

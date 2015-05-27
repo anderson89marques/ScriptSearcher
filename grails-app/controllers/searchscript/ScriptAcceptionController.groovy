@@ -24,7 +24,8 @@ class ScriptAcceptionController {
     }
 
     @Transactional
-    def save(ScriptAcception scriptAcceptionInstance) {
+    def save() {
+        ScriptAcception scriptAcceptionInstance = new ScriptAcception(params)
         if (scriptAcceptionInstance == null) {
             notFound()
             return
@@ -34,7 +35,7 @@ class ScriptAcceptionController {
             respond scriptAcceptionInstance.errors, view:'create'
             return
         }
-        println "Params: $scriptAcceptionInstance"
+        println "Params: ${params.toString()}"
 
         def listtags = params.tagsnomes.split(',')
         println "Lista de tags: ${listtags}"
